@@ -1,9 +1,9 @@
 <template>
 	<div class="Card">
 		<div class="Card__info">
-			<p class="Id">ID:{{2}}</p>
-			<p class="Name">Name:{{"Ernesta"}}</p>
-			<p class="Age">Age:{{40}} years</p>
+			<p class="Id">ID:{{buyer.id}}</p>
+			<p class="Name">Name:{{buyer.name}}</p>
+			<p class="Age">Age:{{buyer.age}} years</p>
 		</div>
 		<div class="Actions">
 			<a href="">See</a>
@@ -12,7 +12,13 @@
 </template>
 <script>
 export default {
-	name:"Card"
+	name:"Card",
+	props:{
+		buyer:{
+			type:Object,
+			default:()=>{}
+		}
+	}
 }
 </script>
 <style scoped>

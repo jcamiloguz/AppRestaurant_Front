@@ -14,7 +14,8 @@
 
 <script>
 export default {
-	name:"Header"
+	name:"Header",
+	
 }
 </script>
 
@@ -50,11 +51,11 @@ nav {
 nav a {
 	padding: 5px 30px;
 	font-size: 2.9rem;
+	border-radius:14px ;
 }
 
 nav a.router-link-exact-active {
   color: #FEFEFE;
 	background-color:#5D7787 ;
-	border-radius:14px ;
-}
+}	
 </style>
