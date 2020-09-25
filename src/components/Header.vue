@@ -29,7 +29,7 @@ a{
 }
 nav {
 	display: grid;
-	height: 80px;
+	height: 60px;
 	grid-template-columns: 180px 1fr 180px;
   padding: 5px 20px;
 	margin: 0 auto;
@@ -40,7 +40,7 @@ nav {
 	grid-column: 2/3;
 	display: flex;
 	width: 100%;
-	max-width: 700px;
+	max-width: 400px;
 	margin: 0 auto		;
 	justify-content: space-between;
 }
@@ -50,7 +50,7 @@ nav {
 }
 nav a {
 	padding: 5px 30px;
-	font-size: 2.9rem;
+	font-size: 1.9rem;
 	border-radius:14px ;
 }
 
