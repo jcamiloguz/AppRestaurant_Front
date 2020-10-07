@@ -1,11 +1,12 @@
 <template>
 	<div class="Card">
+		<h1 v-if="title!=''">{{title}}</h1>
 		<div class="Card__info">
 			<p class="Id">ID:{{buyer.id}}</p>
 			<p class="Name">Name:{{buyer.name}}</p>
 			<p class="Age">Age:{{buyer.age}} years</p>
 		</div>
-		<div class="Actions">
+		<div v-if="!details" class="Actions">
 			<a href="">See</a>
 		</div>
 	</div>
@@ -17,6 +18,14 @@ export default {
 		buyer:{
 			type:Object,
 			default:()=>{}
+		},
+		details:{
+			type:Boolean,
+			default:false
+		},
+		title:{
+			type:String,
+			default:''
 		}
 	}
 }
