@@ -1,11 +1,8 @@
 <template>
 	<section>
+		<h1>{{title}}</h1>
 		<div class="Wrapper">
-			<SliderItem/>
-			<SliderItem/>
-			<SliderItem/>
-			<SliderItem/>
-			<SliderItem/>
+			<SliderItem v-for="item of items" :key="item.id" :item="item" />
 		</div>
 	</section>
 </template>
@@ -16,7 +13,19 @@ export default {
 	name:'Slider',
 	components:{
 		SliderItem
+	},
+	props:{
+		title:{
+			type:String,
+			default:''
+
+		},
+		items:{
+			type:Array,
+			default:()=>[]
+		}
 	}
+
 }
 </script>
 
@@ -24,11 +33,16 @@ export default {
 	section{
 		width:100%;
 		position:relative;
-		overflow: scroll;
 		background-color: #fefefe;
 		box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.16);
+		padding: 30px;
+	}
+	h1{
+		font-size: 2rem;
+
 	}
 	.Wrapper{
+		overflow: scroll;
 		transition: 450ms all;
 		white-space: nowrap;
 		margin: 60px 0px;
@@ -41,5 +55,8 @@ export default {
 		transform: scale(1.5);
 		opacity:1;
 	}
+	::-webkit-scrollbar {
+display:none
+}
 
 </style>

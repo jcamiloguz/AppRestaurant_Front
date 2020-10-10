@@ -5,7 +5,7 @@ const getBuyers=async()=>{
 	response =await response.json()
 	return response.buyers
 }
-const getBuyer=async(id)=>{
+const getDetails=async(id)=>{
 	let response = await fetch(`${API}/buyer/${id}`)
 	response =await response.json()
 	return response.buyer
@@ -33,5 +33,5 @@ const postData=async  ( endpoint,data = {})=> {
 export default {
 	getBuyers,
 	postData,
-	getBuyer
+	getDetails
 };

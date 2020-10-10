@@ -32,8 +32,6 @@ html{
 a{
 	text-decoration: none;
 }
-::-webkit-scrollbar {
-display:none
-}
+
 
 </style>
