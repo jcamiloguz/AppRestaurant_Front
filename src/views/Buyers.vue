@@ -14,6 +14,7 @@
 <script>
 import Card from "@/components/Card";
 import api from "@/api"
+import utils from "@/utils"
 export default {
 	name: 'Buyers',
   components: {
@@ -31,7 +32,7 @@ export default {
 	created(){
 		this.isLoading=true
 		api.getBuyers()
-			.then(buyers =>(this.cards = buyers))
+			.then(buyers =>(this.cards = utils.deleteDuplicate(buyers)))
 			.catch(()=>this.error="Server Error")
 			.finally(()=>this.isLoading=false)
 	}

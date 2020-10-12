@@ -6,7 +6,7 @@
 				<input  v-model="mydate"  type="date">	
 				<p>unix: {{toUnix}}</p>
 			</div>
-			<a class="sync_button" href="#" @Click="submitDate">Sync Info</a>			
+			<button class="sync_button"  @click="submitDate">Sync Info</button>			
 		</div>
 		<div class="container">
 			<a class="delete_button" href="#">Delete Data</a>			
@@ -22,6 +22,7 @@ export default {
 			 mydate: ""
 		}
 	},
+	
 	computed:{
 		toUnix(){
 
@@ -30,13 +31,14 @@ export default {
 				today=today.setHours(0,0,0,0)
 				return today/1000
 			} 
-				console.log('No entro')
 			return Date.parse(this.mydate)/1000
 		}
 	},
 	methods:{
-		submitDate(){
-			api.postData(this.mydate)
+		submitDate:function(event){
+			console.log('touch')
+			api.postData(this.toUnix)
+			.then(this.$router.push('/buyers'))
 		}
 	}
 }
@@ -65,6 +67,7 @@ color: #FEFEFE;
 padding: 5px 40px;
 background-color: #0791E6;
 border-radius: 15px;
+border-color: #fff;
 
 }
 .delete_button{

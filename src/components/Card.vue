@@ -7,7 +7,7 @@
 			<p class="Age">Age:{{buyer.age}} years</p>
 		</div>
 		<div v-if="!details" class="Actions">
-			<a href="">See</a>
+			<router-link :to="`/buyers/${buyer.id}`">See</router-link>
 		</div>
 	</div>
 </template>

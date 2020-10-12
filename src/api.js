@@ -1,4 +1,4 @@
-const API=`http://172.19.104.175:9000`
+const API=`http://172.22.150.192:9000`
 
 const getBuyers=async()=>{
 	let response = await fetch(`${API}/buyer`)
@@ -8,11 +8,11 @@ const getBuyers=async()=>{
 const getDetails=async(id)=>{
 	let response = await fetch(`${API}/buyer/${id}`)
 	response =await response.json()
-	return response.buyer
+	return response
 }
 
-const postData=async  ( endpoint,data = {})=> {
-  const response = await fetch(`${API}${endpoint}`, {
+const postData=async  (data = {})=> {
+  const response = await fetch(`${API}/sync?date=${data}`, {
     method: 'POST', 
     mode: 'cors', 
     cache: 'no-cache', 
@@ -22,9 +22,8 @@ const postData=async  ( endpoint,data = {})=> {
     },
     redirect: 'follow',
     referrerPolicy: 'no-referrer', 
-    body: JSON.stringify(data) 
   });
-  return response.json(); 
+  console.log( response)
 }
 
 
