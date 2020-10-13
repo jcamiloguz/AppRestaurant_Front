@@ -33,9 +33,13 @@ export default {
 	transition:450ms all;
 	transform-origin: center left;
 	padding: 10px;
+  white-space: normal;
+
 }
 .Item:hover ~div{
 	transform: translate3d(100px, 0, 0);
 }
-
+p{
+	text-align:center
+}
 </style>

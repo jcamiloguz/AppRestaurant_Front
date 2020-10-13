@@ -2,7 +2,7 @@
 	<section>
 		<h1>{{title}}</h1>
 		<div class="Wrapper">
-			<SliderItem v-for="item of items" :key="item.id" :item="item" />
+			<SliderItem v-for="item of items" :key="item.product_id" :item="item" />
 		</div>
 	</section>
 </template>
@@ -46,6 +46,7 @@ export default {
 		transition: 450ms all;
 		white-space: nowrap;
 		margin: 60px 0px;
+		height: 300px;
 		padding-bottom: 10px;
 	}
 	.Wrapper:hover div{

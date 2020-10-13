@@ -35,7 +35,8 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	padding: 26px;
-	width: 500px;
+	width: 100%;
+	max-width: 500px;
 	height: 150px;
 	margin: 20px auto;
 	background-color: #FEFEFE;

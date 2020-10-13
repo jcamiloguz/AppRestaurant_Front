@@ -1,9 +1,12 @@
 <template>
   <section>
-    <div v-if="isLoading" class="loader">
-      <DotLoader :loading="isLoading" :color="'#0791E6'" :size="100" />
-    </div>
-    <Card :details="true" :buyer="details.Details.Buyer[0]" />
+    	<div  v-if="isLoading" class="loader">
+				<DotLoader :loading="isLoading" :color="'#0791E6'" :size="100" />
+			</div>
+		<div class="head">
+			<h1>Buyer Details</h1>
+    	<Card :details="true" :buyer="details.Details.Buyer[0]" />
+		</div>
     <div class="Relatedbuyers">
       <h2>Same ip buyers</h2>
       <div class="list">
@@ -14,7 +17,7 @@
         />
       </div>
     </div>
-    <Slider title="Recomended Products" :items="details.History.products" />
+    <Slider title="History" :items="details.History.products" />
   </section>
 </template>
 <script>
@@ -33,16 +36,18 @@ export default {
   },
   created() {
     this.isLoading = true
-    this.getData()
+		this.getData()
   },
   methods: {
-    getData() {
-      const id = this.$route.params.id
-      api.getDetails(id).then((details) => {
-        details.Details.buyers = utils.deleteDuplicate(details.Details.buyers)
-        return (this.details = details)
-			})
-			.finally(()=>this.isLoading=false)
+		getData(loading) {
+			const id = this.$route.params.id
+			api.getDetails(id)
+				.then((details) => {
+					details.Details.buyers = utils.deleteDuplicate(details.Details.buyers,0)
+       		details.History.products = utils.deleteDuplicate(details.History.products)
+       		return (this.details = details)
+				})
+				.catch((err)=>this.error=`Server Error: ${err}`)
     },
     
   },
@@ -74,5 +79,13 @@ h2 {
   margin: 60px;
   justify-content: center;
   width: 100%;
+}
+.head{
+  font-size: 3rem;
+	width: 100%;
+  background-color: #fefefe;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.16);
+  margin: 30px 0px;
+  padding: 26px;
 }
 </style>

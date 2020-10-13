@@ -58,4 +58,16 @@ nav a.router-link-exact-active {
   color: #FEFEFE;
 	background-color:#5D7787 ;
 }	
+@media screen and (max-width: 600px){
+nav {
+align-items: center;
+	grid-template-columns: 0px 1fr 80px;
+}
+nav a {
+	padding: 5px 20px;
+	font-size: 1.6rem;
+	border-radius:14px ;
+}
+
+}
 </style>

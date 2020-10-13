@@ -32,7 +32,7 @@ export default {
 	created(){
 		this.isLoading=true
 		api.getBuyers()
-			.then(buyers =>(this.cards = utils.deleteDuplicate(buyers)))
+			.then(buyers =>(this.cards = utils.deleteDuplicate(buyers,0)))
 			.catch(()=>this.error="Server Error")
 			.finally(()=>this.isLoading=false)
 	}
